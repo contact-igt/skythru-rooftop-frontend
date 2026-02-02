@@ -1,12 +1,10 @@
-import { ChevronDown, Clock, Calendar } from 'lucide-react';
+import { ChevronDown, Clock } from 'lucide-react';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { PACKAGES } from '../data/constants';
 
 const EnquiryCTA = ({ selectedPackage }) => {
-    const navigate = useNavigate();
 
     const {
         register,

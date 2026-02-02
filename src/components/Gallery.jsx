@@ -5,7 +5,7 @@ import { GALLERY_IMAGES } from '../data/constants';
 
 const Gallery = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const isAutoPlaying = true;
 
     // Auto-play slider
     useEffect(() => {
@@ -13,7 +13,7 @@ const Gallery = () => {
 
         const interval = setInterval(() => {
             handleNext();
-        }, 4000); // Change slide every 4 seconds
+        }, 5000); // Change slide every 4 seconds
 
         return () => clearInterval(interval);
     }, [currentIndex, isAutoPlaying]);
