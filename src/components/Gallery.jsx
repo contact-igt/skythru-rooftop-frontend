@@ -66,7 +66,6 @@ const Gallery = () => {
                     <button
                         onClick={() => {
                             handlePrevious();
-                            setIsAutoPlaying(false);
                         }}
                         className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 z-20 bg-[#1b4d3e] hover:bg-[#f59e0b] text-white p-3 md:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
                         aria-label="Previous image"
@@ -78,7 +77,6 @@ const Gallery = () => {
                     <button
                         onClick={() => {
                             handleNext();
-                            setIsAutoPlaying(false);
                         }}
                         className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 z-20 bg-[#1b4d3e] hover:bg-[#f59e0b] text-white p-3 md:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
                         aria-label="Next image"
@@ -130,7 +128,6 @@ const Gallery = () => {
                                 key={idx}
                                 onClick={() => {
                                     setCurrentIndex(idx);
-                                    setIsAutoPlaying(false);
                                 }}
                                 className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
                                     ? 'w-8 bg-[#f59e0b]'
