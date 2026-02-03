@@ -9,17 +9,22 @@ import PackagesSection from './PackagesSection';
 import WhyChooseSection from './WhyChooseSection';
 import EnquiryCTA from './EnquiryCTA';
 import Footer from './Footer';
+import EnquiryModal from './EnquiryModal';
 
 export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
     const [selectedPackage, setSelectedPackage] = useState('');
 
     const handlePackageSelect = (pkgTitle) => {
         setSelectedPackage(pkgTitle);
-        // Smooth scroll to contact section
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
+        setIsEnquiryModalOpen(true);
+    };
+
+    const handleScrollToPackages = () => {
+        const packagesSection = document.getElementById('packages');
+        if (packagesSection) {
+            packagesSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -32,10 +37,32 @@ export default function Home() {
                 onClose={() => setIsMenuOpen(false)}
             />
 
-            <HeroSection />
-            <Gallery />
+            <EnquiryModal
+                isOpen={isEnquiryModalOpen}
+                onClose={() => setIsEnquiryModalOpen(false)}
+                selectedPackage={selectedPackage}
+            />
+
+            <HeroSection
+                onViewPackages={handleScrollToPackages}
+                onBookCelebration={() => {
+                    setSelectedPackage('');
+                    setIsEnquiryModalOpen(true);
+                }}
+            />
+            <Gallery
+                onBookCelebration={() => {
+                    setSelectedPackage('');
+                    setIsEnquiryModalOpen(true);
+                }}
+            />
             <EventsIntroSection />
-            <InstagramVideos />
+            <InstagramVideos
+                onPlanEvent={() => {
+                    setSelectedPackage('');
+                    setIsEnquiryModalOpen(true);
+                }}
+            />
             <PackagesSection onSelectPackage={handlePackageSelect} />
             <WhyChooseSection />
             <EnquiryCTA selectedPackage={selectedPackage} />
