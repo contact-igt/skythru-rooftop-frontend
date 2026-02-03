@@ -137,7 +137,7 @@ const Footer = () => {
                                 Mon - Sun: 12:30 PM - 03:30 PM
                             </p>
                             <p className="text-sm text-neutral-300">
-                                Mon - Sun: 06:30 PM - 09:30 PM
+                                Mon - Sun: 09:30 PM - 11:00 PM
                             </p>
                         </div>
                     </motion.div>

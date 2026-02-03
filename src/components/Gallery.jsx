@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/constants';
 
 const Gallery = ({ onBookCelebration }) => {
@@ -154,8 +154,9 @@ const Gallery = ({ onBookCelebration }) => {
                         onClick={onBookCelebration}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-block bg-[#1b4d3e] text-white px-12 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#f59e0b] transition-colors shadow-xl"
+                        className="inline-flex items-center gap-2 bg-[#1b4d3e] text-white px-12 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#f59e0b] transition-colors shadow-xl"
                     >
+                        <Calendar size={18} />
                         Book Your Celebration
                     </motion.button>
                 </motion.div>
