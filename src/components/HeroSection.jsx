@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { IMAGES } from '../data/constants';
 
-const HeroSection = () => {
+const HeroSection = ({ onViewPackages, onBookCelebration }) => {
     const { scrollYProgress } = useScroll();
     const rotatePlate = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
@@ -38,12 +38,14 @@ const HeroSection = () => {
 
                     <div className="flex gap-4 justify-center">
                         <motion.button
+                            onClick={onViewPackages}
                             whileHover={{ scale: 1.05 }}
                             className="px-8 py-4 rounded-full bg-[#1b4d3e] text-white text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-[#f59e0b] transition-colors"
                         >
                             View Packages
                         </motion.button>
                         <motion.button
+                            onClick={onBookCelebration}
                             whileHover={{ scale: 1.05 }}
                             className="px-8 py-4 rounded-full bg-white border border-[#1b4d3e] text-[#1b4d3e] text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-[#f9f9f9] transition-colors"
                         >

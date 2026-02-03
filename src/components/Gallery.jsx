@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { GALLERY_IMAGES } from '../data/constants';
 
-const Gallery = () => {
+const Gallery = ({ onBookCelebration }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const isAutoPlaying = true;
 
@@ -150,14 +150,14 @@ const Gallery = () => {
                     <p className="text-neutral-600 mb-6 text-sm italic font-serif">
                         ✨ Ready to create your own unforgettable moments? ✨
                     </p>
-                    <motion.a
-                        href="#contact"
+                    <motion.button
+                        onClick={onBookCelebration}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="inline-block bg-[#1b4d3e] text-white px-12 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#f59e0b] transition-colors shadow-xl"
                     >
                         Book Your Celebration
-                    </motion.a>
+                    </motion.button>
                 </motion.div>
             </div>
         </section>
