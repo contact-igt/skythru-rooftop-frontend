@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { PartyPopper } from 'lucide-react';
 import { IMAGES } from '../data/constants';
 
 const HeroSection = ({ onViewPackages, onBookCelebration }) => {
@@ -37,18 +38,19 @@ const HeroSection = ({ onViewPackages, onBookCelebration }) => {
                     </p>
 
                     <div className="flex gap-4 justify-center">
-                        <motion.button
+                        {/* <motion.button
                             onClick={onViewPackages}
                             whileHover={{ scale: 1.05 }}
                             className="px-8 py-4 rounded-full bg-[#1b4d3e] text-white text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-[#f59e0b] transition-colors"
                         >
                             View Packages
-                        </motion.button>
+                        </motion.button> */}
                         <motion.button
                             onClick={onBookCelebration}
                             whileHover={{ scale: 1.05 }}
-                            className="px-8 py-4 rounded-full bg-white border border-[#1b4d3e] text-[#1b4d3e] text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-[#f9f9f9] transition-colors"
+                            className="px-8 py-4 rounded-full bg-[#1b4d3e] text-white text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-[#f59e0b] transition-colors flex items-center gap-2 mx-auto"
                         >
+                            <PartyPopper size={18} />
                             Book Celebration
                         </motion.button>
                     </div>
