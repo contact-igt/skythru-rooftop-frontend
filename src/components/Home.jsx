@@ -10,11 +10,26 @@ import WhyChooseSection from './WhyChooseSection';
 import EnquiryCTA from './EnquiryCTA';
 import Footer from './Footer';
 import EnquiryModal from './EnquiryModal';
+import ValentinesPopup from './ValentinesPopup';
 
 export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
+    const [isValentinesPopupOpen, setIsValentinesPopupOpen] = useState(false);
     const [selectedPackage, setSelectedPackage] = useState('');
+
+    // Show Valentine's popup on mount
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsValentinesPopupOpen(true);
+        }, 1500); // 1.5s delay
+        return () => clearTimeout(timer);
+    }, []);
+
+    const handleCloseValentinesPopup = () => {
+        setIsValentinesPopupOpen(false);
+    };
+
 
     const handlePackageSelect = (pkgTitle) => {
         setSelectedPackage(pkgTitle);
@@ -42,6 +57,12 @@ export default function Home() {
                 onClose={() => setIsEnquiryModalOpen(false)}
                 selectedPackage={selectedPackage}
             />
+
+            <ValentinesPopup
+                isOpen={isValentinesPopupOpen}
+                onClose={handleCloseValentinesPopup}
+            />
+
 
             <HeroSection
                 onViewPackages={handleScrollToPackages}
