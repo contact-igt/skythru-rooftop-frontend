@@ -38,7 +38,7 @@ const ValentinesPopup = ({ isOpen, onClose }) => {
                 const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
                 const minutes = Math.floor((difference / 1000 / 60) % 60);
                 const seconds = Math.floor((difference / 1000) % 60);
-                
+
                 timeLeft = {
                     days: days,
                     hours: hours,
@@ -59,7 +59,7 @@ const ValentinesPopup = ({ isOpen, onClose }) => {
         }, 1000);
 
         return () => clearInterval(timer);
-    });
+    }, []);
 
     // Helper to format numbers with leading zero
     const formatTime = (time) => {
@@ -68,7 +68,7 @@ const ValentinesPopup = ({ isOpen, onClose }) => {
 
     const handleGoogleSheetForm = async (formData) => {
         try {
-            const res = await fetch("https://script.google.com/macros/s/AKfycbweWgYF9vBSa6AdJ6Xe5mSQezxD9EQ9Ao2HXKGNmfEKk2dA_EZQGEsXUVWzx7Hn26oP-w/exec", {
+            await fetch("https://script.google.com/macros/s/AKfycbweWgYF9vBSa6AdJ6Xe5mSQezxD9EQ9Ao2HXKGNmfEKk2dA_EZQGEsXUVWzx7Hn26oP-w/exec", {
                 method: "POST",
                 body: formData
             });
@@ -156,7 +156,7 @@ const ValentinesPopup = ({ isOpen, onClose }) => {
                         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                             {/* Enhanced gradient overlays for depth */}
                             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-40"></div>
-                            
+
                             {/* Abstract Balloons - Enhanced */}
                             <div className="absolute -top-20 -left-20 w-64 h-64 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
                             <div className="absolute top-10 -right-10 w-80 h-80 bg-gradient-to-bl from-rose-200 to-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
