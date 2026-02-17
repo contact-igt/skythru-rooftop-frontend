@@ -10,7 +10,6 @@ import WhyChooseSection from './WhyChooseSection';
 import EnquiryCTA from './EnquiryCTA';
 import Footer from './Footer';
 import EnquiryModal from './EnquiryModal';
-import ValentinesPopup from './ValentinesPopup';
 
 export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
